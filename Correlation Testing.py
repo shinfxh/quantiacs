@@ -6,6 +6,8 @@ import qnt.data as qndata
 import qnt.output as qnout
 import qnt.stats as qns
 
+dataxr = qndata.stocks.load_ndx_data(min_date = "2020-10-01")
+
 data = dataxr.sel(field = 'close').to_numpy()
 tickers = dataxr['asset'].to_numpy()
 dates = dataxr['time'].to_numpy()
