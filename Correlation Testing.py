@@ -38,3 +38,10 @@ def value_plot(pair):
     
 for i in range(10):
     value_plot(most_negative[i])
+    
+sma_slow = qnta.sma(close, 100)
+weights = xr.where(sma_slow, 0,0).astype(float)
+for j in range(10):
+    m, k = most_negative[j]
+    weights[m] += (1/2)**j
+    weights[k] += (1/2)**j
