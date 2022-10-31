@@ -6,7 +6,7 @@ import qnt.data as qndata
 import qnt.output as qnout
 import qnt.stats as qns
 
-start_date = "2005-12-31"
+start_date = "2005-01-01"
 dataxr = qndata.stocks.load_ndx_data(min_date = start_date)
 data = qndata.stocks_load_ndx_data(min_date=start_date)
 
@@ -75,6 +75,7 @@ guess = [-5.05789127e-01,  8.46884424e-01,  2.47910997e+02, -8.09693665e+01,
 print(performance(guess))
 weights = strategy(guess)
 qnout.check(weights, data, "stocks_nasdaq100")
-qnout.write(weights)
-stats = qns.calc_stat(data, weights.sel(time=slice("2006-01-01",None)))
+
+stats = qns.calc_stat(data, weights.sel(time=slice(start_date,None)))
 stats.to_pandas().tail()
+qnout.write(weights)
