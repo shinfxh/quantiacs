@@ -29,12 +29,12 @@ ticker_to_id = {}
 for i in stocks_list:
     if i['symbol'] == 'GOOG' or i['symbol'] == 'GOOGL' or i['symbol'] == 'ZM' or i['symbol'] == 'JAVA' or i['symbol'] == 'AVGO':
         i['sector'] = 'IT/Telecommunications'
-    if i['symbol'] == 'BKNG' :
+    if i['symbol'] == 'BKNG' or i['symbol'] == 'SIAL' or i['symbol'] == 'AEP':
         i['sector'] = 'IT/Telecommunications'
-    if i['symbol'] == 'PYPL' or i['symbol'] == 'WTW':
+    if i['symbol'] == 'PYPL' or i['symbol'] == 'WTW' :
         i['sector'] = 'Finance'
-    #if i['symbol']  == 'erqeq':
-        #i['sector'] = 'Consumer Goods'
+    if i['symbol'] == 'ABNB' or i['symbol'] == 'STLD' or i['symbol'] == 'LAMR':
+        i['sector'] = 'Consumer Goods'
 for i in range(len(stocks_list)):
     stock_description = stocks_list[i]
     sector = stock_description['sector']
